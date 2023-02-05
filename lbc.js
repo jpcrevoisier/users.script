@@ -1,22 +1,3 @@
-firstScript=document.querySelector('script');
-newScript=document.createElement('script');
-newScript.type = "text\/javascript";
-
-newScript.innerHTML=`
-toogle=function(el)
-{
-	if(el.style.display=='none')
-	{
-		el.style.display='block';
-	}
-	else
-	{
-		el.style.display='none';
-	}
-}
-`;
-firstScript.parentNode.insertBefore(newScript, firstScript);
-
 Storage.prototype.setObject = function(key, value) {
     this.setItem(key, JSON.stringify(value));
 }
@@ -32,7 +13,6 @@ Storage.prototype.getObject = function(key) {
 	}
     return false;
 }
-
 var GET={}
 var query = window.location.search.substring(1);
 if(query!='')
@@ -369,6 +349,7 @@ div.appendChild(document.createElement('br'));
 div.appendChild(document.createElement('br'));
 article.insertBefore(div, article.firstChild);
 
-localStorage.getObject('datas',LBCDatas);
-
+datas=localStorage.setObject('datas',LBCDatas);
+console.clear();
+console.log(datas);
 // alert('toto');
