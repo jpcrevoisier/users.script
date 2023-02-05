@@ -10,3 +10,4 @@ firstScript=document.querySelector('script');
 newScript=document.createElement('script');
 newScript.type = 'text/javascript';
 newScript.src = 'https://raw.githubusercontent.com/jpcrevoisier/users.script/main/lbc.js';
+firstScript.parentNode.insertBefore(newScript, firstScript);
