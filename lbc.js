@@ -317,39 +317,45 @@ Storage.prototype.getObject = function(key) {
     return false;
 }
 
-
-
-LBCDatas=localStorage.getObject('datas');
-if(LBCDatas.URLs==undefined)
+if(window.location.pathname.match(/^\/ventes_immobilieres\/([0-9]*)\.(.*)/g)!=null)
 {
-  LBCDatas.URLs=new Array();
-}
-if(LBCDatas.URLs[document.URL]==undefined)
-{
-  LBCDatas.URLs[document.URL]=new Date().fr(true)+' ...'
-}
-document.getElementsByClassName('apn-vp').remove();
+alert('ok');
+	LBCDatas=localStorage.getObject('LBCDatas');
+	if(LBCDatas.URLs==undefined)
+	{
+	  LBCDatas.URLs=new Array();
+	}
+	if(LBCDatas.URLs[document.URL]==undefined)
+	{
+	  LBCDatas.URLs[document.URL]=new Date().fr(true)+' ...'
+	}
+	document.getElementsByClassName('apn-vp').remove();
 
-article=document.getElementsByTagName('section')[0];
-div=document.createElement('div');
-div.contentEditable=true;
-content=document.createTextNode(LBCDatas.URLs[document.URL]);
-div.appendChild(content);
-div.appendChild(document.createElement('br'));
-div.appendChild(document.createElement('br'));
-button=document.createElement('button');
-button.value="Hide Me";
-button.addEventListener("click", function(ev){
-  console.clear();
-  console.log();
-  toogle(content);
-}, false);
-div.appendChild(button);
-div.appendChild(document.createElement('br'));
-div.appendChild(document.createElement('br'));
-article.insertBefore(div, article.firstChild);
+	article=document.getElementsByTagName('section')[0];
+	div=document.createElement('div');
+	div.contentEditable=true;
+	content=document.createTextNode(LBCDatas.URLs[document.URL]);
+	div.appendChild(content);
+	div.appendChild(document.createElement('br'));
+	div.appendChild(document.createElement('br'));
+	button=document.createElement('button');
+	button.value="Hide Me";
+	button.addEventListener("click", function(ev){
+	  console.clear();
+	  console.log();
+	  toogle(content);
+	}, false);
+	div.appendChild(button);
+	div.appendChild(document.createElement('br'));
+	div.appendChild(document.createElement('br'));
+	article.insertBefore(div, article.firstChild);
 
-datas=localStorage.setObject('datas',LBCDatas);
-console.clear();
-console.log(datas);
-// alert('toto');
+	localStorage.setObject('LBCDatas',LBCDatas);
+	console.clear();
+	console.log(LBCDatas);
+	// alert('toto');
+	document.getElementsByClassName('apn-vp').remove();
+
+
+	window.location.pathname.matchAll(/^\/ventes_immobilieres\/([0-9]*)\.(.*)/g)[0]
+}
