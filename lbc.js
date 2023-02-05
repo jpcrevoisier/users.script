@@ -319,7 +319,7 @@ Storage.prototype.getObject = function(key) {
 
 if(window.location.pathname.match(/^\/ventes_immobilieres\/([0-9]*)\.(.*)/g)!=null)
 {
-alert('ok');
+	alert('ok');
 	LBCDatas=localStorage.getObject('LBCDatas');
 	if(LBCDatas.URLs==undefined)
 	{
