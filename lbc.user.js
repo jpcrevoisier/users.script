@@ -4,6 +4,7 @@
 // @grant    none
 // @run-at document-idle
 // @include https://www.leboncoin.fr/*
+// @downloadURL  https://raw.githubusercontent.com/jpcrevoisier/users.script/main/lbc.user.js
 // @require https://raw.githubusercontent.com/jpcrevoisier/users.script/main/lbc.js
 // ==/UserScript==
 
