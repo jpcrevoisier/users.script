@@ -320,17 +320,19 @@ Storage.prototype.getObject = function(key) {
 if(window.location.pathname.match(/^\/ventes_immobilieres\/([0-9]*)\.(.*)/g)!=null)
 {
 	alert('ok');
-	LBCDatas=localStorage.getObject('LBCDatas');
+	x=[...window.location.pathname.matchAll(/^\/ventes_immobilieres\/([0-9]*)\.(.*)/g)[0];
+	console.log(x);
+	LBCDatas=JSON.parse(await GM.getValue("LBCDatas", "{}")); 
 	if(LBCDatas.URLs==undefined)
 	{
 	  LBCDatas.URLs=new Array();
 	}
-	if(LBCDatas.URLs[document.URL]==undefined)
+	if(LBCDatas.URLs[window.location.pathname]==undefined)
 	{
-	  LBCDatas.URLs[document.URL]=new Date().fr(true)+' ...'
+	  LBCDatas.URLs[window.location.pathname]=new Date().fr(true)+' ...'
 	}
 	document.getElementsByClassName('apn-vp').remove();
-
+	GM.setValue("LBCDatas", JSON.stringify(LBCDatas))
 	article=document.getElementsByTagName('section')[0];
 	div=document.createElement('div');
 	div.contentEditable=true;
